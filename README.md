@@ -1,2 +1,2 @@
-# HA-Nord-Pool-helper-python-scripts
-Home Assistant Nord Pool helper scripts (python_script)
+# Home Assistant - Nord-Pool - helper python_scripts
+Home Assistant Nord Pool helper scripts that go to python_script directory
