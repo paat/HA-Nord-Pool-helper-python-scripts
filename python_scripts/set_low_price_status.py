@@ -15,7 +15,8 @@ def device_should_be_on(prices_by_h, price_current, price_low, hours):
     return False
 
 
-def main():
+# home assistant start executing here
+try:
     # number of hours device should be turned on during 24-hour period
     number_of_hours = int(data.get('number_of_hours'))
 
@@ -29,16 +30,11 @@ def main():
     if sensor_state:
         today_prices = sensor_state.attributes.get('today')
         tomorrow_prices = sensor_state.attributes.get('tomorrow')
-        prices_by_hour = today_prices
-        if tomorrow_prices:
-            prices_by_hour = prices_by_hour + tomorrow_prices
+        prices_by_hour = today_prices + tomorrow_prices if tomorrow_prices else today_prices
 
-        current_price = float(sensor_state.attributes.get('current_price'))
-
+        current_price = float(data.get('current_price'))
         result = device_should_be_on(prices_by_hour, current_price, low_price, number_of_hours)
-        # Set a variable in Home Assistant to store the result
         hass.states.set(input_boolean_id, 'on' if result else 'off')
-
-
-if __name__ == '__main__':
-    main()
+except NameError:
+    # this is needed for running unit tests
+    pass
