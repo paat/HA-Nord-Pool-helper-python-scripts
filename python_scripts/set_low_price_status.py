@@ -1,4 +1,4 @@
-# check_low_price_status.py in <config>/python_scripts/
+# set_low_price_status.py in <config>/python_scripts/
 def device_should_be_on(prices_by_h, price_current, price_low, hours):
     """
     :param prices_by_h: prices ordrered by hour today+tomorrow

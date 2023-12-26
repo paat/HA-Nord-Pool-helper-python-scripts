@@ -1,6 +1,6 @@
 import unittest
 from unittest.mock import MagicMock
-from python_scripts.check_low_price_status import device_should_be_on
+from python_scripts.set_low_price_status import device_should_be_on
 
 
 class TestDeviceShouldBeOn(unittest.TestCase):
