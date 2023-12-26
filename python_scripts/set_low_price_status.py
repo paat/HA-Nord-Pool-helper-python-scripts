@@ -33,7 +33,7 @@ def main():
         if tomorrow_prices:
             prices_by_hour = prices_by_hour + tomorrow_prices
 
-        current_price = float(data.get('current_price'))
+        current_price = float(sensor_state.attributes.get('current_price'))
 
         result = device_should_be_on(prices_by_hour, current_price, low_price, number_of_hours)
         # Set a variable in Home Assistant to store the result
