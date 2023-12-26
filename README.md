@@ -6,6 +6,7 @@ This project contains Python scripts designed to integrate with Home Assistant f
 
 ## Requirements
 - Home Assistant installation.
+- Nordpool integration (HACS)
 - Git (for cloning the repository).
 - Python 3.x (as used by Home Assistant).
 
@@ -26,7 +27,9 @@ Make sure that the script has execute permissions (`chmod +x update_and_copy.sh`
 
 ### Step 3: Configure Home Assistant
 - Enable the Python Scripts integration by adding `python_script:` to your Home Assistant's `configuration.yaml` file.
-- Rename nordpool sensor id to sensor.nordpool (script assumes sensor.nordpool exists)
+- Configure nordpool
+  - Rename nordpool sensor id to sensor.nordpool (script assumes sensor.nordpool exists)
+  - Configure price to be in cents
 - Restart Home Assistant to apply the changes.
 
 ### Step 4: Create input_boolean Helper
@@ -66,6 +69,9 @@ mode: single
 ```
 - The  python script is triggered by any changes in sensor.nordpool.
 - For each input_boolean you can add new action/service row
+  - input_boolean_id: device-id of the helper (created in previous step)
+  - number_of_hours: how many hours device must be on during 24-hour period
+  - low_price: price threshold in cents. At such a low price device can be switched on without optimisation.
 
 #### Automation for switching device on/off
 - Note, you can have similar automation for climate (turn down/up heating)
