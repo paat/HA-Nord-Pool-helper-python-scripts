@@ -1,7 +1,8 @@
 # set_low_price_status.py in <config>/python_scripts/
 
-def device_should_be_on24(prices_by_h, price_current, price_low, hours, current_hour):
+def device_should_be_on24(prices_by_h, price_current, price_low, hours, hour_current):
     """
+    :param hour_current: current hour (0-23)
     :param hours: number of hours device should be on
     :param prices_by_h: prices ordered by hour today+tomorrow
     :param price_current: current nordpool price
@@ -15,7 +16,7 @@ def device_should_be_on24(prices_by_h, price_current, price_low, hours, current_
         prices_by_h_24 = prices_by_h
     else:
         # look in the scope of 24-hour window
-        prices_by_h_24 = prices_by_h[max(0, current_hour - 12):min(current_hour + 12, len(prices_by_h) - 1)]
+        prices_by_h_24 = prices_by_h[max(0, hour_current - 12):min(hour_current + 12, len(prices_by_h) - 1)]
 
     prices_sorted = sorted(prices_by_h_24)
     prices_lowest = prices_sorted[:hours]
