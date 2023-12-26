@@ -39,7 +39,6 @@ Create input_boolean helper for the device. The helper can be used in automation
 Create automations in Home Assistant to utilize these scripts. This can be done via the Home Assistant UI under the "Automations" section.
 
 ## Usage example
-Describe how to use the scripts here, including any necessary configuration or Home Assistant entity setup.
 
 ### Example: Create input_boolean Helper
 Settings -> Devices & Services -> Helper -> (Create Helper) -> Toggle
