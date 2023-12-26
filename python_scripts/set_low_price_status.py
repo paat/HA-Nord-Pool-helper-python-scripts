@@ -40,7 +40,7 @@ if data and hass:
         tomorrow_prices = sensor_state.attributes.get('tomorrow')
         prices_by_hour = today_prices + tomorrow_prices if tomorrow_prices else today_prices
 
-        current_price = float(sensor_state.attributes.get.get('current_price'))
+        current_price = float(sensor_state.attributes.get('current_price'))
         result = device_should_be_on(prices_by_hour, current_price, low_price, number_of_hours)
         hass.states.set(input_boolean_id, 'on' if result else 'off')
 
