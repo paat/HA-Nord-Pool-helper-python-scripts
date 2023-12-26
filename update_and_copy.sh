@@ -1,7 +1,6 @@
 #!/bin/bash
 
 #You need to run this script in the python_scripts/{my-repo-name}/ directory
-#make sure to chmod +x update_and_copy.sh
 
 # Pull the latest changes
 git pull
