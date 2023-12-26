@@ -42,8 +42,8 @@ Create automations in Home Assistant to utilize these scripts. This can be done 
 
 ### Example: Create input_boolean Helper
 Settings -> Devices & Services -> Helper -> (Create Helper) -> Toggle
-- Give a descriptive name, example: low_price_switch_boiler
-- id of the device will be input_boolean.low_price_switch_boiler
+- Give a descriptive name, example: `low_price_switch_boiler`
+- id of the device will be `input_boolean.low_price_switch_boiler`
 
 ### Example: Create Automations
 You first need automations that would execute python script and update input_boolean states.
@@ -68,9 +68,9 @@ mode: single
 ```
 - The  python script is triggered by any changes in sensor.nordpool.
 - For each input_boolean you can add new action/service row
-  - input_boolean_id: device-id of the helper (created in previous step)
-  - number_of_hours: how many hours device must be on during 24-hour period
-  - low_price: price threshold in cents. At such a low price device can be switched on without optimisation.
+  - `input_boolean_id`: device-id of the helper (created in previous step)
+  - `number_of_hours`: how many hours device must be on during 24-hour period
+  - `low_price`: price threshold in cents. At such a low price device can be switched on without optimisation.
 
 #### Automation for switching device on/off
 - Note, you can have similar automation for climate (turn down/up heating)
