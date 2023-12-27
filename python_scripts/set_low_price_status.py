@@ -51,7 +51,7 @@ if data and hass:
 
         current_price = float(sensor_state.attributes.get('current_price'))
 
-        now = datetime.now()
+        now = datetime.datetime.now()
         current_hour = now.hour
 
         result = device_should_be_on24(prices_by_hour, current_price, low_price, number_of_hours, current_hour)
